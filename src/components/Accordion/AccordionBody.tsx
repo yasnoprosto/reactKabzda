@@ -3,7 +3,7 @@ type AccordionBodyPropsType = {
 }
 
 export const AccordionBody = (props: AccordionBodyPropsType) => {
-    console.log("Accordion list is rendering");
+    console.log("UncontrolledAccordion list is rendering");
     return (
         <>
             <li>1</li>
