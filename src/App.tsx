@@ -7,6 +7,7 @@ import {OnOff} from "./components/OnOff/OnOff";
 import {Accordion} from "./components/Accordion/Accordion";
 import {UncontrolledAccordion} from "./components/UncontrolledAccordion/UncontrolledAccordion";
 import {Rating} from "./components/Rating/Rating";
+import {PageTitle} from "./components/PageTitle/PageTitle";
 
 
 const App = () => {
@@ -14,12 +15,17 @@ const App = () => {
 
     return (
         <div className="App">
-            {/*<PageTitle title={"TITLE"} />*/}
-            {/*<UncontrolledAccordion titleValue={"Menu"} expanded={true}/>*/}
-            {/*<UncontrolledAccordion titleValue={"Users"} />*/}
-            <Rating />
-            {/*<OnOff />*/}
-            {/*<UncontrolledAccordion titleValue={"Menu"}/>*/}
+            <PageTitle title={"TITLE"} />
+            <div>
+                <UncontrolledAccordion titleValue={"Users"}/>
+            </div>
+            <div>
+                <Rating/>
+            </div>
+            <div>
+                <OnOff/>
+            </div>
+            <div><Accordion titleValue={"sdsd"}/></div>
         </div>
     );
 };
