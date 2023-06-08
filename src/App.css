@@ -1,3 +1,14 @@
 * {
     text-align: center;
 }
+
+.App {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 40px;
+}
+
+div {
+    border: 1px solid #dad8d8;
+}
