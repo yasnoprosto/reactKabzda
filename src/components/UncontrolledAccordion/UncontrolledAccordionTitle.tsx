@@ -1,9 +1,9 @@
 
 
-type AccordionTitlePropsType = {
+type UncontrolledAccordionTitlePropsType = {
     titleValue: string
 }
-export const AccordionTitle = (props: AccordionTitlePropsType) => {
+export const UncontrolledAccordionTitle = (props: UncontrolledAccordionTitlePropsType) => {
     console.log("UncontrolledAccordion title is rendering")
     return (
         <>

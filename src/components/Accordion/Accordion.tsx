@@ -6,7 +6,7 @@ type AccordionPropsType = {
     expanded?: boolean;
 }
 export const Accordion = (props: AccordionPropsType) => {
-    console.log("Accordion is rendering")
+    console.log("UncontrolledAccordion is rendering")
     return (
         <div>
             <AccordionTitle titleValue={props.titleValue}/>
