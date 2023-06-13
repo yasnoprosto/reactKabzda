@@ -2,12 +2,17 @@
 
 type UncontrolledAccordionTitlePropsType = {
     titleValue: string
+    setExpanded:(expanded: boolean)=>void
+    expanded: boolean
 }
-export const UncontrolledAccordionTitle = (props: UncontrolledAccordionTitlePropsType) => {
+export const UncontrolledAccordionTitle = ({titleValue, setExpanded, expanded}: UncontrolledAccordionTitlePropsType) => {
     console.log("UncontrolledAccordion title is rendering")
+
+    let toggleExpanded = !expanded
+
     return (
         <>
-            <h3>-- {props.titleValue} --</h3>
+            <h3 onClick={() => {setExpanded(toggleExpanded)}}>-- {titleValue} --</h3>
         </>
     )
 };

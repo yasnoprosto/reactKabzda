@@ -6,14 +6,13 @@ type UncontrolledAccordionPropsType = {
     titleValue: string;
     // expanded?: boolean;
 }
-export const UncontrolledAccordion = (props: UncontrolledAccordionPropsType) => {
+export const UncontrolledAccordion = ({titleValue}: UncontrolledAccordionPropsType) => {
 
     const [expanded, setExpanded] = useState(true);
 
     return (
         <div>
-            <UncontrolledAccordionTitle titleValue={props.titleValue}/>
-            <button onClick={() => {setExpanded(!expanded)}}>+</button>
+            <UncontrolledAccordionTitle titleValue={titleValue} expanded={expanded} setExpanded={setExpanded}/>
             { expanded && <UncontrolledAccordionBody/>}
         </div>
     )
