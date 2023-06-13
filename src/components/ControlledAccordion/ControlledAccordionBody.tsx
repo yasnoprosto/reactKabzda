@@ -2,7 +2,7 @@ type AccordionBodyPropsType = {
     collapsed?: boolean;
 }
 
-export const AccordionBody = (props: AccordionBodyPropsType) => {
+export const ControlledAccordionBody = (props: AccordionBodyPropsType) => {
     console.log("UncontrolledAccordion list is rendering");
     return (
         <>
