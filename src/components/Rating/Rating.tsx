@@ -23,6 +23,7 @@ export const Rating = (props: RatingPropsType) => {
             <Star selected={selectedStar > 3} callback={setStarHandler} value={4}/>
             <Star selected={selectedStar > 4} callback={setStarHandler} value={5}/>
             <Star selected={selectedStar > 4} callback={setStarHandler} value={5}/>
+            <Star selected={selectedStar > 4} callback={setStarHandler} value={5}/>
         </div>
     );
 };
