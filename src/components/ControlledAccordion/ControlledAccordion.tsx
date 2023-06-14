@@ -10,7 +10,7 @@ export const ControlledAccordion = ({titleValue, setExpanded, expanded}: Accordi
     console.log("UncontrolledAccordion is rendering")
     return (
         <div>
-            <ControlledAccordionTitle titleValue={titleValue} setExpanded={setExpanded} expanded={expanded}/>
+            <ControlledAccordionTitle titleValue={titleValue} setExpanded={() => {setExpanded(!expanded)}}/>
             {expanded && <ControlledAccordionBody/> }
         </div>
     )

@@ -2,16 +2,13 @@
 
 type AccordionTitlePropsType = {
     titleValue: string
-    setExpanded:(value: boolean)=>void
-    expanded: boolean
+    setExpanded:()=>void
 }
-export const ControlledAccordionTitle = ({titleValue,setExpanded,expanded}: AccordionTitlePropsType) => {
+export const ControlledAccordionTitle = ({titleValue,setExpanded}: AccordionTitlePropsType) => {
     console.log("UncontrolledAccordion title is rendering")
-
-    let reverseExpanded = !expanded
     return (
         <>
-            <h3 onClick={() => {setExpanded(reverseExpanded)}}>-- {titleValue} --</h3>
+            <h3 onClick={() => {setExpanded()}}>-- {titleValue} --</h3>
         </>
     )
 };

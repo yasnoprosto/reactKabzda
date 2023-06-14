@@ -14,11 +14,11 @@ export const ControlledRating = ({value, setRatingValue}: RatingPropsType) => {
 
     return (
         <div>
-            <ControlledStar selected={value > 0} setRatingValue={setRatingValue} value={1}/>
-            <ControlledStar selected={value > 1} setRatingValue={setRatingValue} value={2}/>
-            <ControlledStar selected={value > 2} setRatingValue={setRatingValue} value={3}/>
-            <ControlledStar selected={value > 3} setRatingValue={setRatingValue} value={4}/>
-            <ControlledStar selected={value > 4} setRatingValue={setRatingValue} value={5}/>
+            <ControlledStar selected={value > 0} setRatingValue={() => {setRatingValue(1)}}/>
+            <ControlledStar selected={value > 1} setRatingValue={() => {setRatingValue(2)}}/>
+            <ControlledStar selected={value > 2} setRatingValue={() => {setRatingValue(3)}}/>
+            <ControlledStar selected={value > 3} setRatingValue={() => {setRatingValue(4)}}/>
+            <ControlledStar selected={value > 4} setRatingValue={() => {setRatingValue(5)}}/>
         </div>
     );
 };

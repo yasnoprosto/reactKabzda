@@ -4,22 +4,13 @@ import {RatingValueType} from "./ControlledRating";
 
 type StarPropsType = {
     selected: boolean
-    setRatingValue:(value: RatingValueType) => void
-    value: RatingValueType
+    setRatingValue:() => void
 }
 
-export const ControlledStar = ({selected, setRatingValue, value}: StarPropsType) => {
-
-    // const onStarClickHandler = () => {
-    //     props.callback(props.value)
-    // }
+export const ControlledStar = ({selected, setRatingValue}: StarPropsType) => {
 
     return (
-        <span className={selected ? s.active : ""} onClick={() => {
-            debugger
-            setRatingValue(value)}
-        }> STAR </span>
+        <span className={selected ? s.active : ""} onClick={() => {setRatingValue()}}>★ </span>
     )
 
-    // return props.selected ? <span> ★ </span> : <span> ☆  </span>
     }

@@ -1,14 +1,12 @@
 import {useState} from "react";
 
 type OnOffPropsType = {
-    // isOn: boolean;
+    setIsOn:(value: boolean)=>void
+    isOn:boolean
 }
-export const OnOff = (props: OnOffPropsType) => {
-    console.log("OnOff is rendering");
+export const ControlledOnOff = ({setIsOn, isOn}: OnOffPropsType) => {
+    console.log("UncontrolledOnOff is rendering");
 
-    const [isOn, setIsOn] = useState(false);
-
-    console.log("isOn = " + isOn);
 
     const turnOn = () => {
       setIsOn(true)
@@ -18,7 +16,7 @@ export const OnOff = (props: OnOffPropsType) => {
         setIsOn(false)
     }
 
-    const onStyle = {
+    const onBtnStyle = {
         width: "30px",
         height: "30px",
         margin: "5px",
@@ -28,7 +26,7 @@ export const OnOff = (props: OnOffPropsType) => {
         display: "inline",
         backgroundColor: isOn ? "green" : "white"
     };
-    const offStyle = {
+    const offBtnStyle = {
         width: "30px",
         height: "30px",
         padding: "2px",
@@ -48,8 +46,8 @@ export const OnOff = (props: OnOffPropsType) => {
 
     return (
         <div>
-            <div onClick={() => {turnOn()}} style={onStyle}>On</div>
-            <div onClick={() => {turnOff()}} style={offStyle}>Off</div>
+            <div onClick={() => {turnOn()}} style={onBtnStyle}>On</div>
+            <div onClick={() => {turnOff()}} style={offBtnStyle}>Off</div>
             <div style={indicatorStyle}></div>
         </div>
     );
