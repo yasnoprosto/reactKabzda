@@ -20,7 +20,7 @@ const App = () => {
         <div className="App">
             <PageTitle title={"TITLE"}/>
             <div>
-                Uncontrolled OnOff <UncontrolledOnOff/>
+                Uncontrolled OnOff <UncontrolledOnOff onChange={setIsOn} /> {isOn.toString()}
             </div>
             <div>
                 Uncontrolled Accordion <UncontrolledAccordion titleValue={"Users"}/>
@@ -32,7 +32,7 @@ const App = () => {
                 Controlled OnOff <ControlledOnOff setIsOn={setIsOn} isOn={isOn}/>
             </div>
             <div>
-                Controlled Accordion <ControlledAccordion titleValue={"Controlled"} setExpanded={setIsExpanded}
+                Controlled Accordion <ControlledAccordion titleValue={"Controlled"} setExpanded={()=>{setIsExpanded(!isExpanded)}}
                                                           expanded={isExpanded}/>
             </div>
             <div>

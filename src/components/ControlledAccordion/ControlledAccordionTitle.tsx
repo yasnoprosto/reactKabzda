@@ -8,7 +8,7 @@ export const ControlledAccordionTitle = ({titleValue,setExpanded}: AccordionTitl
     console.log("UncontrolledAccordion title is rendering")
     return (
         <>
-            <h3 onClick={() => {setExpanded()}}>-- {titleValue} --</h3>
+            <h3 onClick={setExpanded}>-- {titleValue} --</h3>
         </>
     )
 };

@@ -3,14 +3,14 @@ import {ControlledAccordionBody} from "./ControlledAccordionBody";
 
 type AccordionPropsType = {
     titleValue: string;
-    setExpanded:(value: boolean)=>void
+    setExpanded:()=>void
     expanded: boolean
 }
 export const ControlledAccordion = ({titleValue, setExpanded, expanded}: AccordionPropsType) => {
     console.log("UncontrolledAccordion is rendering")
     return (
         <div>
-            <ControlledAccordionTitle titleValue={titleValue} setExpanded={() => {setExpanded(!expanded)}}/>
+            <ControlledAccordionTitle titleValue={titleValue} setExpanded={setExpanded}/>
             {expanded && <ControlledAccordionBody/> }
         </div>
     )

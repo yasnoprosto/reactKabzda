@@ -1,9 +1,9 @@
 import {useState} from "react";
 
 type OnOffPropsType = {
-    // isOn: boolean;
+    onChange:(value: boolean) => void
 }
-export const UncontrolledOnOff = (props: OnOffPropsType) => {
+export const UncontrolledOnOff = ({onChange}: OnOffPropsType) => {
     console.log("UncontrolledOnOff is rendering");
 
     const [isOn, setIsOn] = useState(false);
@@ -11,12 +11,14 @@ export const UncontrolledOnOff = (props: OnOffPropsType) => {
     console.log("isOn = " + isOn);
 
     const turnOn = () => {
-      setIsOn(true)
-    }
+        setIsOn(true);
+        onChange(true);
+    };
 
     const turnOff = () => {
-        setIsOn(false)
-    }
+        setIsOn(false);
+        onChange(false);
+    };
 
     const onStyle = {
         width: "30px",
@@ -48,8 +50,14 @@ export const UncontrolledOnOff = (props: OnOffPropsType) => {
 
     return (
         <div>
-            <div onClick={() => {turnOn()}} style={onStyle}>On</div>
-            <div onClick={() => {turnOff()}} style={offStyle}>Off</div>
+            <div onClick={() => {
+                turnOn();
+            }} style={onStyle}>On
+            </div>
+            <div onClick={() => {
+                turnOff();
+            }} style={offStyle}>Off
+            </div>
             <div style={indicatorStyle}></div>
         </div>
     );
