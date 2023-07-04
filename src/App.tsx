@@ -7,6 +7,7 @@ import {ControlledRating, RatingValueType} from "./components/ControlledRating/C
 import {UncontrolledRating} from "./components/UncontrolledRating/UncontrolledRating";
 import {UncontrolledAccordion} from "./components/UncontrolledAccordion/UncontrolledAccordion";
 import {UncontrolledOnOff} from "./components/OnOff/UncontrolledOnOff";
+import {ControlledSelect} from "./components/ControlledSelect/ControlledSelect";
 
 
 const App = () => {
@@ -15,12 +16,23 @@ const App = () => {
     const [ratingValue, setRatingValue] = useState<RatingValueType>(0);
     const [isExpanded, setIsExpanded] = useState<boolean>(false);
     const [isOn, setIsOn] = useState(false);
+    const [selectedValue, setSelectedValue] = useState<string | undefined>("");
+
+    const selectItems = [{title: "Moscow", value: "1"}, {title: "Ufa", value: "2"}, {title: "Sochi", value: "3"}];
+
+    const onAccordionClickHandler = (value: any) => {
+        alert(value);
+    };
+
+    const onSelectClickHandler = (value: string | undefined) => {
+        setSelectedValue(value);
+    };
 
     return (
         <div className="App">
             <PageTitle title={"TITLE"}/>
             <div>
-                Uncontrolled OnOff <UncontrolledOnOff onChange={setIsOn} /> {isOn.toString()}
+                Uncontrolled OnOff <UncontrolledOnOff onChange={setIsOn}/> {isOn.toString()}
             </div>
             <div>
                 Uncontrolled Accordion <UncontrolledAccordion titleValue={"Users"}/>
@@ -32,11 +44,19 @@ const App = () => {
                 Controlled OnOff <ControlledOnOff setIsOn={setIsOn} isOn={isOn}/>
             </div>
             <div>
-                Controlled Accordion <ControlledAccordion titleValue={"Controlled"} setExpanded={()=>{setIsExpanded(!isExpanded)}}
-                                                          expanded={isExpanded}/>
+                Controlled Accordion <ControlledAccordion onClick={onAccordionClickHandler} titleValue={"Controlled"}
+                                                          setExpanded={() => {
+                                                              setIsExpanded(!isExpanded);
+                                                          }}
+                                                          expanded={isExpanded} items={[{title: "Denis", value: 1}, {
+                title: "Oleg",
+                value: 2
+            }, {title: "Sasha", value: 3}]}/>
             </div>
             <div>
                 Controlled Rating <ControlledRating value={ratingValue} setRatingValue={setRatingValue}/>
+            </div>
+            <div><ControlledSelect items={selectItems} onChange={onSelectClickHandler} selectedValue={selectedValue}/>
             </div>
         </div>
     );
