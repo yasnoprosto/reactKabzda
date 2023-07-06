@@ -8,6 +8,7 @@ import {UncontrolledRating} from "./components/UncontrolledRating/UncontrolledRa
 import {UncontrolledAccordion} from "./components/UncontrolledAccordion/UncontrolledAccordion";
 import {UncontrolledOnOff} from "./components/OnOff/UncontrolledOnOff";
 import {ControlledSelect} from "./components/ControlledSelect/ControlledSelect";
+import {ControlledSelectOnDiv} from "./components/ControlledSelect/ControlledSelectOnDiv";
 
 
 const App = () => {
@@ -58,6 +59,7 @@ const App = () => {
             </div>
             <div><ControlledSelect items={selectItems} onChange={onSelectClickHandler} selectedValue={selectedValue}/>
             </div>
+            <div style={{display: "flex", alignItems: "center", justifyContent: "center"}}><ControlledSelectOnDiv items={selectItems} onChange={onSelectClickHandler} selectedValue={selectedValue}/></div>
         </div>
     );
 };

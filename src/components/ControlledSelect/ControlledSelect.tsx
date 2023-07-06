@@ -1,50 +1,65 @@
-import React, {ChangeEvent} from "react";
+import React, {ChangeEvent, useState} from "react";
 import {ItemType} from "../ControlledAccordion/ControlledAccordion";
 import {FormControl, InputLabel, MenuItem, Select, SelectChangeEvent, styled} from "@mui/material";
+import styles from ".././ControlledSelect/ControlledSelect.module.css";
 
-type ControlledSelectPropsType = {
-    selectedValue: string | undefined
+export type ControlledSelectPropsType = {
+    selectedValue?: string | undefined
     onChange: (value: string | undefined) => void
     items: ItemType[]
 }
 
 export const ControlledSelect: React.FC<ControlledSelectPropsType> = (props) => {
 
+    const [active, setActive] = useState(false);
+
 
     const onChangeSelectHandler = (event: SelectChangeEvent) => {
         props.onChange(event.target.value);
-        console.log(event);
+        setActive(true);
     };
 
-    const mappedItems = props.items.map((i, index) => {
+    const mappedItemsToSelect = props.items.map((i, index) => {
         return (
             <MenuItem key={index} value={i.value}>{i.title}</MenuItem>
         );
     });
 
-    const mapOptions = props.items.filter(i => i.value === props.selectedValue)
+    const mappedItemsToPage = props.items.map((i, index) => {
+        return (
+            <div key={index} onClick={() => props.onChange(i.value)}>{i.title}</div>
+        );
+    });
+
+    const toggleItems   = () => {
+        setActive(!active);
+    };
+
+    const mappedFilterOptions = props.items.filter(i => i.value === props.selectedValue).map(o => {
+            return (
+                <h3 onClick={toggleItems} className={"header__select"}>{o.title}</h3>);
+        }
+    )
+    ;
 
     return (
         <div>
-            {mapOptions.map(o => {
-                debugger
-                return (
-                <div>{o.title}</div>)}
-                )
-            }
-        <div>
-            <FormControl style={{display: "flex", alignItems: "center"}} fullWidth>
-                <InputLabel id="demo-simple-select-label"></InputLabel>
-                <Select
-                    style={{width: "100px"}}
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
-                    onChange={onChangeSelectHandler}
-                >
-                    {mappedItems}
-                </Select>
-            </FormControl>
-        </div>
+            <div>
+                <FormControl className={styles.formControl} fullWidth>
+                    <InputLabel id="demo-simple-select-label"></InputLabel>
+                    <Select
+                        className={styles.select}
+                        labelId="demo-simple-select-label"
+                        id="demo-simple-select"
+                        onChange={onChangeSelectHandler}
+                    >
+                        {mappedItemsToSelect}
+                    </Select>
+                    {mappedFilterOptions}
+                    {active && mappedItemsToPage}
+                </FormControl>
+            </div>
+
         </div>
     );
 };
